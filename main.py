@@ -46,15 +46,15 @@ def run_analysis(owner, repo, limit=None):
 if __name__ == "__main__":
     # --- Configuration ---
     # Option 1: Hardcode the repository (Comment out if using argparse)
-    # TARGET_OWNER = "cafferychen777"
-    # TARGET_REPO = "mLLMCelltype"
+    # TARGET_OWNER = "owner"
+    # TARGET_REPO = "repository"
     # run_analysis(TARGET_OWNER, TARGET_REPO)
 
     # Option 2: Use command-line arguments (Recommended)
     parser = argparse.ArgumentParser(description="Fetch and analyze GitHub stargazer data for a given repository.")
     parser.add_argument("repo_url", help="Full URL of the GitHub repository (e.g., https://github.com/owner/repo)")
     parser.add_argument("--limit", "-l", type=int, help="Maximum number of stargazers to fetch. If not specified, fetches all stargazers.")
-    # Example parsing: python main.py https://github.com/cafferychen777/mLLMCelltype --limit 50
+    # Example parsing: python main.py https://github.com/owner/repository --limit 50
 
     args = parser.parse_args()
 

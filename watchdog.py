@@ -649,16 +649,11 @@ def fetch_and_save_stargazer_data(repo_owner, repo_name, return_filenames=False,
 
 # Keep this block if you want to be able to run watchdog.py directly for testing
 if __name__ == "__main__":
-    # Set up argument parsing
     parser = argparse.ArgumentParser(description="Fetch GitHub stargazer data for a given repository.")
-    parser.add_argument("--owner", "-o", default="cafferychen777", help="Repository owner (default: cafferychen777)")
-    parser.add_argument("--repo", "-r", default="mLLMCelltype", help="Repository name (default: mLLMCelltype)")
-    parser.add_argument("--limit", "-l", type=int, help="Maximum number of stargazers to fetch. If not specified, fetches all.")
+    parser.add_argument("--owner", "-o", default="owner", help="Repository owner (default: owner)")
+    parser.add_argument("--repo", "-r", default="repository", help="Repository name (default: repository)")
+    parser.add_argument("--limit", "-l", type=int, help="Maximum number of stargazers to fetch (fetches all if not specified)")
     
     args = parser.parse_args()
-    
-    print(f"Running watchdog.py directly for repo: {args.owner}/{args.repo}")
-    if args.limit:
-        print(f"Sampling mode: Will fetch up to {args.limit} stargazers")
     
     fetch_and_save_stargazer_data(args.owner, args.repo, limit=args.limit)
